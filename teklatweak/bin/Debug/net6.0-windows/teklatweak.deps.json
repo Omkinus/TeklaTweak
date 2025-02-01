@@ -1,0 +1,63 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "teklatweak/1.0.0": {
+        "dependencies": {
+          "Tekla.Structures": "2022.0.10715",
+          "Tekla.Structures.Model": "2022.0.10715"
+        },
+        "runtime": {
+          "teklatweak.dll": {}
+        }
+      },
+      "Tekla.Structures/2022.0.10715": {
+        "runtime": {
+          "lib/net40/Tekla.Structures.dll": {
+            "assemblyVersion": "2022.0.0.0",
+            "fileVersion": "2022.0.10715.0"
+          }
+        }
+      },
+      "Tekla.Structures.Datatype/2022.0.10715": {},
+      "Tekla.Structures.Model/2022.0.10715": {
+        "dependencies": {
+          "Tekla.Structures": "2022.0.10715",
+          "Tekla.Structures.Datatype": "2022.0.10715"
+        }
+      }
+    }
+  },
+  "libraries": {
+    "teklatweak/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Tekla.Structures/2022.0.10715": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Ktr+uUYTJ0KB0Zp0REVVi0CoO1gtJyfvZ6shN0cuJPL+mveLYyzlmYEjdqVrgpMZvbW2sbtuzsxAnltogDHvxQ==",
+      "path": "tekla.structures/2022.0.10715",
+      "hashPath": "tekla.structures.2022.0.10715.nupkg.sha512"
+    },
+    "Tekla.Structures.Datatype/2022.0.10715": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-S7GWfES3U91nMjauWoYOZbfu8UHeRAOQOR0JtVAgB1PC6O+xAWslhx0pV8JlHEfizks/Xgzi0WSQA1LV4IKthg==",
+      "path": "tekla.structures.datatype/2022.0.10715",
+      "hashPath": "tekla.structures.datatype.2022.0.10715.nupkg.sha512"
+    },
+    "Tekla.Structures.Model/2022.0.10715": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-r0LKJTyHGrzB/cpSKA2NaUtjMVPCbyJIH82HTawCFT1dKpV+gTGMcK0N1Xw5n+P/aFg4lCLaMIahtbGiUDGGDw==",
+      "path": "tekla.structures.model/2022.0.10715",
+      "hashPath": "tekla.structures.model.2022.0.10715.nupkg.sha512"
+    }
+  }
+}
