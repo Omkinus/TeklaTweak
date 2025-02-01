@@ -68,8 +68,8 @@
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\my repos\\TeklaTweak\\teklatweak\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "D:\\my repos\\TeklaTweak\\teklatweak\\MainWindow.xaml",
-              "RelativeToolTip": "MainWindow.xaml",
+              "ToolTip": "D:\\my repos\\TeklaTweak\\teklatweak\\MainWindow.xaml*",
+              "RelativeToolTip": "MainWindow.xaml*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-02-01T11:42:36.706Z",
               "EditorCaption": ""

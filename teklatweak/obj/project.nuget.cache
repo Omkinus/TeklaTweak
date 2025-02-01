@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "/LVRTgkfgHE=",
+  "dgSpecHash": "UAkBRqZdf/s=",
   "success": true,
   "projectFilePath": "D:\\my repos\\TeklaTweak\\teklatweak\\teklatweak.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\ookii.dialogs.wpf\\5.0.1\\ookii.dialogs.wpf.5.0.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\tekla.structures\\2022.0.10715\\tekla.structures.2022.0.10715.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\tekla.structures.datatype\\2022.0.10715\\tekla.structures.datatype.2022.0.10715.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\tekla.structures.model\\2022.0.10715\\tekla.structures.model.2022.0.10715.nupkg.sha512"

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Win32;
+using Ookii.Dialogs.Wpf; // Для VistaFolderBrowserDialog
 
 namespace teklatweak
 {
@@ -13,6 +14,10 @@ namespace teklatweak
         private readonly string appPath = System.AppDomain.CurrentDomain.BaseDirectory;
         private readonly List<string> shortcutFiles = new List<string>();
         private readonly List<string> ribbonFiles = new List<string>();
+
+        // Переменные для хранения выбранных путей
+        private string shortcutSavePath = string.Empty;
+        private string ribbonSavePath = string.Empty;
 
         public MainWindow()
         {
@@ -23,6 +28,7 @@ namespace teklatweak
             UpdateComboBoxes();
         }
 
+        // Метод загрузки ранее сохраненных файлов
         private void LoadSavedFiles()
         {
             if (File.Exists(Path.Combine(appPath, "shortcut_files.txt")))
@@ -36,6 +42,7 @@ namespace teklatweak
             }
         }
 
+        // Метод загрузки файла клавиатурных сочетаний
         private void LoadKeyboardShortcuts_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
@@ -47,11 +54,33 @@ namespace teklatweak
             if (openFileDialog.ShowDialog() == true)
             {
                 string filePath = openFileDialog.FileName;
-                CopyFileToAppDirectory(filePath, "keyboard_shortcuts", shortcutFiles, "shortcut_files.txt");
-                UpdateComboBoxes();
+
+                if (!string.IsNullOrEmpty(shortcutSavePath))
+                {
+                    string fileName = Path.GetFileName(filePath);
+                    string destinationPath = Path.Combine(shortcutSavePath, fileName);
+
+                    // Копируем файл в выбранную папку
+                    File.Copy(filePath, destinationPath, true);
+
+                    // Сохраняем путь относительно программы
+                    string relativePath = Path.Combine("keyboard_shortcuts", fileName);
+                    if (!shortcutFiles.Contains(relativePath))
+                    {
+                        shortcutFiles.Add(relativePath);
+                    }
+
+                    SaveLoadedFiles(shortcutFiles, "shortcut_files.txt");
+                    UpdateComboBoxes();
+                }
+                else
+                {
+                    MessageBox.Show("Please select a save path for shortcuts first.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
         }
 
+        // Метод загрузки файла конфигурации ленты
         private void LoadRibbon_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
@@ -63,37 +92,39 @@ namespace teklatweak
             if (openFileDialog.ShowDialog() == true)
             {
                 string filePath = openFileDialog.FileName;
-                CopyFileToAppDirectory(filePath, "ribbon_configurations", ribbonFiles, "ribbon_files.txt");
-                UpdateComboBoxes();
+
+                if (!string.IsNullOrEmpty(ribbonSavePath))
+                {
+                    string fileName = Path.GetFileName(filePath);
+                    string destinationPath = Path.Combine(ribbonSavePath, fileName);
+
+                    // Копируем файл в выбранную папку
+                    File.Copy(filePath, destinationPath, true);
+
+                    // Сохраняем путь относительно программы
+                    string relativePath = Path.Combine("ribbon_configurations", fileName);
+                    if (!ribbonFiles.Contains(relativePath))
+                    {
+                        ribbonFiles.Add(relativePath);
+                    }
+
+                    SaveLoadedFiles(ribbonFiles, "ribbon_files.txt");
+                    UpdateComboBoxes();
+                }
+                else
+                {
+                    MessageBox.Show("Please select a save path for ribbon configurations first.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
         }
 
-        private void CopyFileToAppDirectory(string sourcePath, string folderName, List<string> fileList, string saveFileName)
-        {
-            string fileName = Path.GetFileName(sourcePath);
-            string destinationPath = Path.Combine(appPath, folderName, fileName);
-
-            // Создаем папку если её нет
-            Directory.CreateDirectory(Path.Combine(appPath, folderName));
-
-            // Копируем файл в директорию программы
-            File.Copy(sourcePath, destinationPath, true);
-
-            // Сохраняем путь относительно программы
-            string relativePath = Path.Combine(folderName, fileName);
-            if (!fileList.Contains(relativePath))
-            {
-                fileList.Add(relativePath);
-            }
-
-            SaveLoadedFiles(fileList, saveFileName);
-        }
-
+        // Метод сохранения списка файлов
         private void SaveLoadedFiles(List<string> fileList, string saveFileName)
         {
             File.WriteAllLines(Path.Combine(appPath, saveFileName), fileList);
         }
 
+        // Метод обновления ComboBox
         private void UpdateComboBoxes()
         {
             comboBoxShortcuts.ItemsSource = null;
@@ -103,6 +134,7 @@ namespace teklatweak
             comboBoxRibbon.ItemsSource = ribbonFiles;
         }
 
+        // Метод удаления выбранного файла из списка клавиатурных сочетаний
         private void RemoveShortcut_Click(object sender, RoutedEventArgs e)
         {
             if (comboBoxShortcuts.SelectedItem != null)
@@ -113,6 +145,7 @@ namespace teklatweak
             }
         }
 
+        // Метод удаления выбранного файла из списка конфигураций ленты
         private void RemoveRibbon_Click(object sender, RoutedEventArgs e)
         {
             if (comboBoxRibbon.SelectedItem != null)
@@ -123,6 +156,7 @@ namespace teklatweak
             }
         }
 
+        // Метод удаления файла
         private void RemoveFile(string filePath, List<string> fileList, string saveFileName, string folderName)
         {
             // Удаляем файл из списка
@@ -139,6 +173,29 @@ namespace teklatweak
             SaveLoadedFiles(fileList, saveFileName);
         }
 
+        // Метод выбора пути сохранения для клавиатурных сочетаний
+        private void SelectShortcutPath_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new VistaFolderBrowserDialog();
+            if (dialog.ShowDialog() == true)
+            {
+                shortcutSavePath = dialog.SelectedPath;
+                shortcutPathTextBlock.Text = $"Selected Path: {shortcutSavePath}";
+            }
+        }
+
+        // Метод выбора пути сохранения для конфигурации ленты
+        private void SelectRibbonPath_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new VistaFolderBrowserDialog();
+            if (dialog.ShowDialog() == true)
+            {
+                ribbonSavePath = dialog.SelectedPath;
+                ribbonPathTextBlock.Text = $"Selected Path: {ribbonSavePath}";
+            }
+        }
+
+        // Обработчики событий изменения выбора в ComboBox
         private void ComboBoxShortcuts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // Можно добавить дополнительную логику для выбора файла
@@ -147,6 +204,10 @@ namespace teklatweak
         private void ComboBoxRibbon_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // Можно добавить дополнительную логику для выбора файла
+        }
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

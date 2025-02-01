@@ -36,6 +36,32 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+
+        <!-- Стиль для кнопки закрытия -->
+        <Style x:Key="CloseButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FFB71C1C"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#FFC62828"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
 
     <Grid>
@@ -54,11 +80,15 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <!-- Заголовок -->
-            <DockPanel Grid.Row="0" Background="#FF0D47A1" Margin="0,0,0,20" >
+            <!-- Заголовок с кнопкой закрытия -->
+            <DockPanel Grid.Row="0" Background="#FF0D47A1" Height="50" Margin="0,0,0,20">
                 <TextBlock Text="TeklaTweak - Customization Tool" 
                            FontSize="24" Foreground="White" FontWeight="Bold"
-                           VerticalAlignment="Center" Padding="20" />
+                           VerticalAlignment="Center" Padding="20" DockPanel.Dock="Left"/>
+                <Button Content="X" Style="{StaticResource CloseButtonStyle}" 
+            Width="40" Height="40" HorizontalAlignment="Right" 
+            Click="CloseButton_Click" DockPanel.Dock="Right"
+            FontSize="18" Padding="5"/>
             </DockPanel>
 
             <!-- Основной контент -->
@@ -71,20 +101,56 @@
                 <!-- Блок Keyboard Shortcuts -->
                 <Border Grid.Column="0" Background="#FF1E88E5" CornerRadius="10" Padding="20" Margin="0,0,10,0">
                     <StackPanel>
+                        <!-- Заголовок блока -->
                         <TextBlock Text="Keyboard Shortcuts" FontSize="20" Foreground="White" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                        <!-- Кнопка загрузки файла -->
                         <Button Content="Load Shortcut File" Click="LoadKeyboardShortcuts_Click" Style="{StaticResource CustomButtonStyle}" Margin="0,0,0,10"/>
+
+                        <!-- ComboBox для списка файлов -->
                         <ComboBox Name="comboBoxShortcuts" Height="40" Background="#FFBBDEFB" Foreground="Black" BorderThickness="0" FontSize="14" SelectionChanged="ComboBoxShortcuts_SelectionChanged" Margin="0,0,0,10"/>
-                        <Button Content="Remove Selected Shortcut" Click="RemoveShortcut_Click" Style="{StaticResource CustomButtonStyle}"/>
+
+                        <!-- Кнопка удаления выбранного файла -->
+                        <Button Content="Remove Selected Shortcut" Click="RemoveShortcut_Click" Style="{StaticResource CustomButtonStyle}" Margin="0,0,0,10"/>
+
+                        <!-- Кнопка выбора пути сохранения -->
+                        <Button Content="Select Save Path" Click="SelectShortcutPath_Click" Style="{StaticResource CustomButtonStyle}" Margin="0,0,0,10"/>
+
+                        <!-- Отображение выбранного пути (многострочный) -->
+                        <TextBox Name="shortcutPathTextBlock" 
+                                 Text="No path selected" 
+                                 FontSize="14" Foreground="White" 
+                                 Background="#FF1E88E5" BorderThickness="0" 
+                                 IsReadOnly="True" TextWrapping="Wrap" 
+                                 Height="Auto" MinHeight="20" Margin="0,0,0,10"/>
                     </StackPanel>
                 </Border>
 
                 <!-- Блок Ribbon Configuration -->
                 <Border Grid.Column="1" Background="#FF1E88E5" CornerRadius="10" Padding="20" Margin="10,0,0,0">
                     <StackPanel>
+                        <!-- Заголовок блока -->
                         <TextBlock Text="Ribbon Configuration" FontSize="20" Foreground="White" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                        <!-- Кнопка загрузки файла -->
                         <Button Content="Load Ribbon File" Click="LoadRibbon_Click" Style="{StaticResource CustomButtonStyle}" Margin="0,0,0,10"/>
+
+                        <!-- ComboBox для списка файлов -->
                         <ComboBox Name="comboBoxRibbon" Height="40" Background="#FFBBDEFB" Foreground="Black" BorderThickness="0" FontSize="14" SelectionChanged="ComboBoxRibbon_SelectionChanged" Margin="0,0,0,10"/>
-                        <Button Content="Remove Selected Ribbon" Click="RemoveRibbon_Click" Style="{StaticResource CustomButtonStyle}"/>
+
+                        <!-- Кнопка удаления выбранного файла -->
+                        <Button Content="Remove Selected Ribbon" Click="RemoveRibbon_Click" Style="{StaticResource CustomButtonStyle}" Margin="0,0,0,10"/>
+
+                        <!-- Кнопка выбора пути сохранения -->
+                        <Button Content="Select Save Path" Click="SelectRibbonPath_Click" Style="{StaticResource CustomButtonStyle}" Margin="0,0,0,10"/>
+
+                        <!-- Отображение выбранного пути (многострочный) -->
+                        <TextBox Name="ribbonPathTextBlock" 
+                                 Text="No path selected" 
+                                 FontSize="14" Foreground="White" 
+                                 Background="#FF1E88E5" BorderThickness="0" 
+                                 IsReadOnly="True" TextWrapping="Wrap" 
+                                 Height="Auto" MinHeight="20" Margin="0,0,0,10"/>
                     </StackPanel>
                 </Border>
             </Grid>
