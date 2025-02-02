@@ -219,8 +219,11 @@ namespace WpfApp1
         private void ImportRibbon_Click(object sender, RoutedEventArgs e)
         {
             Tekla.Structures.Model.Model model = new Tekla.Structures.Model.Model();
-
+            
             model.CommitChanges();
+
+
+
             //builder.InvokeCommand("CommandRepository", "KeyboardShortcut.Customize");
             //builder.wpf.View("KeyboardShortcut.CustomizePage").Find("AID_KS_ImportButton").As.Button.Invoke();
             //builder.wpf.View("KeyboardShortcut.CustomizePage").Find("AID_KS_CloseButton").As.Button.Invoke();
