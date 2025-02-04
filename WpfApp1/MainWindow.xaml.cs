@@ -45,7 +45,7 @@ namespace WpfApp1
                 foreach (var line in lines)
                 {
                     var parts = line.Split('|');
-                    if (parts.Length == 5)
+                    if (parts.Length == 4) // Проверяем, что строка содержит 4 части
                     {
                         var profileName = parts[0];
                         var profilePath = parts[1];
@@ -55,6 +55,7 @@ namespace WpfApp1
                         var shortcutFiles = new List<(string Name, string Path)>();
                         var ribbonFiles = new List<(string Name, string Path)>();
 
+                        // Разбираем список файлов shortcuts
                         foreach (var file in shortcutFilesStr)
                         {
                             if (!string.IsNullOrEmpty(file))
@@ -65,6 +66,7 @@ namespace WpfApp1
                             }
                         }
 
+                        // Разбираем список файлов ribbon
                         foreach (var file in ribbonFilesStr)
                         {
                             if (!string.IsNullOrEmpty(file))
@@ -75,6 +77,7 @@ namespace WpfApp1
                             }
                         }
 
+                        // Создаем профиль
                         profiles[profileName] = new Profile
                         {
                             Name = profileName,
@@ -156,12 +159,17 @@ namespace WpfApp1
                 var profileName = kvp.Key;
                 var profile = kvp.Value;
 
+                // Преобразуем список файлов shortcuts в строку
                 var shortcutFilesStr = string.Join(",", profile.ShortcutFiles.Select(f => $"{f.Name}:{f.Path}"));
+
+                // Преобразуем список файлов ribbon в строку
                 var ribbonFilesStr = string.Join(",", profile.RibbonFiles.Select(f => $"{f.Name}:{f.Path}"));
 
+                // Формируем строку для записи в файл
                 lines.Add($"{profileName}|{profile.Path}|{shortcutFilesStr}|{ribbonFilesStr}");
             }
 
+            // Записываем все строки в файл profiles.txt
             File.WriteAllLines(Path.Combine(appPath, "profiles.txt"), lines);
         }
 

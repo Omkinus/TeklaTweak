@@ -1,2 +1,1 @@
-OLEG|C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Profiles\OLEG|Shortcuts.xml:C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Profiles\OLEG\shortcuts\Shortcuts.xml|albl_up_Steel_Detailing--main_menu.xml:C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Profiles\OLEG\ribbon\albl_up_Steel_Detailing--main_menu.xml
-IGOR|C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Profiles\IGOR|Shortcuts.xml:C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Profiles\IGOR\shortcuts\Shortcuts.xml|albl_up_Steel_Detailing--main_menu.xml:C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Profiles\IGOR\ribbon\albl_up_Steel_Detailing--main_menu.xml
+bulka|C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Profiles\bulka||
