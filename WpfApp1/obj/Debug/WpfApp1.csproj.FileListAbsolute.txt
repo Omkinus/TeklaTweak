@@ -30,13 +30,11 @@ C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Ookii.Dialogs.Wpf.dll
 C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Tekla.Structures.Datatype.dll
 C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Tekla.Structures.dll
 C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Tekla.Structures.Model.dll
-C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Newtonsoft.Json.dll
 C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Ookii.Dialogs.Wpf.pdb
 C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Ookii.Dialogs.Wpf.xml
 C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Tekla.Structures.xml
 C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Tekla.Structures.Datatype.xml
 C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Tekla.Structures.Model.xml
-C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\obj\Debug\WpfApp1.csprojAssemblyReference.cache
 C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\obj\Debug\MainWindow.baml
 C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\obj\Debug\MainWindow.g.cs
 C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\obj\Debug\App.g.cs

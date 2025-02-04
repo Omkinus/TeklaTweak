@@ -1,21 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Win32;
 using Ookii.Dialogs.Wpf; // Для VistaFolderBrowserDialog
-using System.Text;
-using System.Linq;
 
 namespace WpfApp1
 {
     public partial class MainWindow : Window
     {
         private readonly string appPath = System.AppDomain.CurrentDomain.BaseDirectory;
-        private readonly Dictionary<string, Profile> profiles = new Dictionary<string, Profile>(); // Хранилище профилей
+        private readonly Dictionary<string, Profile> profiles = new Dictionary<string, Profile>();
         private string currentProfileName = string.Empty;
 
+        private string shortcutSavePath = string.Empty;
+        private string ribbonSavePath = string.Empty;
+        private readonly List<(string Name, string Path)> shortcutFiles = new List<(string Name, string Path)>();
+        private readonly List<(string Name, string Path)> ribbonFiles = new List<(string Name, string Path)>();
         public MainWindow()
         {
             InitializeComponent();
@@ -27,8 +30,8 @@ namespace WpfApp1
         // Класс для хранения информации о профиле
         private class Profile
         {
-            public string ShortcutSavePath { get; set; } = string.Empty;
-            public string RibbonSavePath { get; set; } = string.Empty;
+            public string Name { get; set; }
+            public string Path { get; set; } = string.Empty; // Путь к папке профиля
             public List<(string Name, string Path)> ShortcutFiles { get; set; } = new List<(string Name, string Path)>();
             public List<(string Name, string Path)> RibbonFiles { get; set; } = new List<(string Name, string Path)>();
         }
@@ -45,10 +48,9 @@ namespace WpfApp1
                     if (parts.Length == 5)
                     {
                         var profileName = parts[0];
-                        var shortcutPath = parts[1];
-                        var ribbonPath = parts[2];
-                        var shortcutFilesStr = parts[3].Split(',');
-                        var ribbonFilesStr = parts[4].Split(',');
+                        var profilePath = parts[1];
+                        var shortcutFilesStr = parts[2].Split(',');
+                        var ribbonFilesStr = parts[3].Split(',');
 
                         var shortcutFiles = new List<(string Name, string Path)>();
                         var ribbonFiles = new List<(string Name, string Path)>();
@@ -75,14 +77,74 @@ namespace WpfApp1
 
                         profiles[profileName] = new Profile
                         {
-                            ShortcutSavePath = shortcutPath,
-                            RibbonSavePath = ribbonPath,
+                            Name = profileName,
+                            Path = profilePath,
                             ShortcutFiles = shortcutFiles,
                             RibbonFiles = ribbonFiles
                         };
                     }
                 }
             }
+        }
+
+        // Метод обновления ComboBox профилей
+        private void UpdateComboBoxProfiles()
+        {
+            comboBoxProfiles.ItemsSource = null;
+            comboBoxProfiles.ItemsSource = profiles.Keys.ToList();
+            if (profiles.Count > 0)
+            {
+                comboBoxProfiles.SelectedItem = profiles.Keys.First();
+                currentProfileName = comboBoxProfiles.SelectedItem.ToString();
+                UpdateProfileDetails();
+            }
+        }
+
+        // Метод обновления деталей выбранного профиля
+        private void UpdateProfileDetails()
+        {
+            if (string.IsNullOrEmpty(currentProfileName)) return;
+
+            var profile = profiles[currentProfileName];
+
+            checkboxShortcutLoaded.IsChecked = profile.ShortcutFiles.Any();
+            checkboxRibbonLoaded.IsChecked = profile.RibbonFiles.Any();
+        }
+
+        // Метод создания нового профиля
+        private void CreateProfile_Click(object sender, RoutedEventArgs e)
+        {
+            var profileName = textBoxNewProfileName.Text.Trim();
+            if (string.IsNullOrEmpty(profileName))
+            {
+                MessageBox.Show("Please enter a profile name.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (profiles.ContainsKey(profileName))
+            {
+                MessageBox.Show($"A profile with the name '{profileName}' already exists.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            // Создаем папку для профиля
+            var profilePath = Path.Combine(appPath, "Profiles", profileName);
+            Directory.CreateDirectory(profilePath);
+
+            // Создаем подпапки для shortcuts и ribbon
+            Directory.CreateDirectory(Path.Combine(profilePath, "shortcuts"));
+            Directory.CreateDirectory(Path.Combine(profilePath, "ribbon"));
+
+            profiles[profileName] = new Profile
+            {
+                Name = profileName,
+                Path = profilePath
+            };
+
+            SaveProfiles();
+            UpdateComboBoxProfiles();
+            comboBoxProfiles.SelectedItem = profileName;
+            currentProfileName = profileName;
         }
 
         // Метод сохранения профилей в файл
@@ -97,95 +159,10 @@ namespace WpfApp1
                 var shortcutFilesStr = string.Join(",", profile.ShortcutFiles.Select(f => $"{f.Name}:{f.Path}"));
                 var ribbonFilesStr = string.Join(",", profile.RibbonFiles.Select(f => $"{f.Name}:{f.Path}"));
 
-                lines.Add($"{profileName}|{profile.ShortcutSavePath}|{profile.RibbonSavePath}|{shortcutFilesStr}|{ribbonFilesStr}");
+                lines.Add($"{profileName}|{profile.Path}|{shortcutFilesStr}|{ribbonFilesStr}");
             }
 
             File.WriteAllLines(Path.Combine(appPath, "profiles.txt"), lines);
-        }
-
-        // Метод обновления комбобокса профилей
-        private void UpdateComboBoxProfiles()
-        {
-            comboBoxProfiles.ItemsSource = null;
-            comboBoxProfiles.ItemsSource = profiles.Keys.ToList();
-            if (profiles.Count > 0)
-            {
-                comboBoxProfiles.SelectedItem = profiles.Keys.First();
-                currentProfileName = comboBoxProfiles.SelectedItem.ToString();
-            }
-        }
-
-        // Метод создания нового профиля
-        private void CreateProfile_Click(object sender, RoutedEventArgs e)
-        {
-            var dialog = new InputDialog("Enter a name for the new profile:", "New Profile");
-            if (dialog.ShowDialog() == true)
-            {
-                var profileName = dialog.Result;
-                if (string.IsNullOrEmpty(profileName))
-                {
-                    MessageBox.Show("Profile name cannot be empty.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-
-                if (profiles.ContainsKey(profileName))
-                {
-                    MessageBox.Show($"A profile with the name '{profileName}' already exists.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    return;
-                }
-
-                profiles[profileName] = new Profile();
-                SaveProfiles();
-                UpdateComboBoxProfiles();
-                comboBoxProfiles.SelectedItem = profileName;
-                currentProfileName = profileName;
-            }
-        }
-
-        // Метод выбора пути сохранения для клавиатурных сочетаний
-        private void SelectShortcutPath_Click(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrEmpty(currentProfileName))
-            {
-                MessageBox.Show("Please select or create a profile first.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            var dialog = new VistaFolderBrowserDialog();
-            if (dialog.ShowDialog() == true)
-            {
-                profiles[currentProfileName].ShortcutSavePath = dialog.SelectedPath;
-                SaveProfiles();
-                UpdatePathsTextBlock();
-            }
-        }
-
-        // Метод выбора пути сохранения для конфигурации ленты
-        private void SelectRibbonPath_Click(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrEmpty(currentProfileName))
-            {
-                MessageBox.Show("Please select or create a profile first.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            var dialog = new VistaFolderBrowserDialog();
-            if (dialog.ShowDialog() == true)
-            {
-                profiles[currentProfileName].RibbonSavePath = dialog.SelectedPath;
-                SaveProfiles();
-                UpdatePathsTextBlock();
-            }
-        }
-
-        // Метод обновления текстового блока с путями
-        private void UpdatePathsTextBlock()
-        {
-            if (string.IsNullOrEmpty(currentProfileName)) return;
-
-            var profile = profiles[currentProfileName];
-            shortcutPathTextBlock.Text = $"Shortcut Path: {profile.ShortcutSavePath}";
-            ribbonPathTextBlock.Text = $"Ribbon Path: {profile.RibbonSavePath}";
         }
 
         // Метод загрузки файла клавиатурных сочетаний
@@ -205,36 +182,31 @@ namespace WpfApp1
 
             if (openFileDialog.ShowDialog() == true)
             {
-                var filePath = openFileDialog.FileName;
+                string filePath = openFileDialog.FileName;
                 var profile = profiles[currentProfileName];
 
-                if (string.IsNullOrEmpty(profile.ShortcutSavePath))
+                string fileName = Path.GetFileName(filePath);
+                string destinationPath = Path.Combine(profile.Path, "shortcuts", fileName);
+
+                try
                 {
-                    MessageBox.Show("Please select a save path for shortcuts first.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    return;
+                    File.Copy(filePath, destinationPath, true);
+                    var fileEntry = (fileName, destinationPath);
+
+                    if (!profile.ShortcutFiles.Exists(f => f.Name == fileName))
+                    {
+                        profile.ShortcutFiles.Add(fileEntry);
+                        SaveProfiles();
+                        UpdateProfileDetails();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"A file with the name '{fileName}' already exists.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
                 }
-
-                var fileName = Path.GetFileName(filePath);
-                var customName = RequestFileName("Enter a name for the shortcut file:");
-
-                if (string.IsNullOrEmpty(customName))
+                catch (Exception ex)
                 {
-                    MessageBox.Show("File name cannot be empty.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-
-                var destinationPath = Path.Combine(profile.ShortcutSavePath, fileName);
-                File.Copy(filePath, destinationPath, true);
-
-                var fileEntry = (customName, Path.Combine(profile.ShortcutSavePath, fileName));
-                if (!profile.ShortcutFiles.Exists(f => f.Name == customName))
-                {
-                    profile.ShortcutFiles.Add(fileEntry);
-                    SaveProfiles();
-                }
-                else
-                {
-                    MessageBox.Show($"A file with the name '{customName}' already exists.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show($"Error loading shortcut file: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -256,49 +228,33 @@ namespace WpfApp1
 
             if (openFileDialog.ShowDialog() == true)
             {
-                var filePath = openFileDialog.FileName;
+                string filePath = openFileDialog.FileName;
                 var profile = profiles[currentProfileName];
 
-                if (string.IsNullOrEmpty(profile.RibbonSavePath))
+                string fileName = Path.GetFileName(filePath);
+                string destinationPath = Path.Combine(profile.Path, "ribbon", fileName);
+
+                try
                 {
-                    MessageBox.Show("Please select a save path for ribbon configurations first.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    return;
+                    File.Copy(filePath, destinationPath, true);
+                    var fileEntry = (fileName, destinationPath);
+
+                    if (!profile.RibbonFiles.Exists(f => f.Name == fileName))
+                    {
+                        profile.RibbonFiles.Add(fileEntry);
+                        SaveProfiles();
+                        UpdateProfileDetails();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"A file with the name '{fileName}' already exists.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
                 }
-
-                var fileName = Path.GetFileName(filePath);
-                var customName = RequestFileName("Enter a name for the ribbon configuration file:");
-
-                if (string.IsNullOrEmpty(customName))
+                catch (Exception ex)
                 {
-                    MessageBox.Show("File name cannot be empty.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-
-                var destinationPath = Path.Combine(profile.RibbonSavePath, fileName);
-                File.Copy(filePath, destinationPath, true);
-
-                var fileEntry = (customName, Path.Combine(profile.RibbonSavePath, fileName));
-                if (!profile.RibbonFiles.Exists(f => f.Name == customName))
-                {
-                    profile.RibbonFiles.Add(fileEntry);
-                    SaveProfiles();
-                }
-                else
-                {
-                    MessageBox.Show($"A file with the name '{customName}' already exists.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show($"Error loading ribbon file: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-        }
-
-        // Метод запроса имени файла у пользователя
-        private string RequestFileName(string message)
-        {
-            var dialog = new InputDialog(message, "File Name");
-            if (dialog.ShowDialog() == true)
-            {
-                return dialog.Result;
-            }
-            return null;
         }
 
         // Метод импорта файлов
@@ -319,10 +275,6 @@ namespace WpfApp1
                     MessageBox.Show($"Importing shortcut file: {file.Path}", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
-            else
-            {
-                MessageBox.Show("No shortcut files to import.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
 
             if (profile.RibbonFiles.Any())
             {
@@ -330,10 +282,6 @@ namespace WpfApp1
                 {
                     MessageBox.Show($"Importing ribbon configuration file: {file.Path}", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
-            }
-            else
-            {
-                MessageBox.Show("No ribbon configuration files to import.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
@@ -343,40 +291,77 @@ namespace WpfApp1
             if (comboBoxProfiles.SelectedItem != null)
             {
                 currentProfileName = comboBoxProfiles.SelectedItem.ToString();
-                UpdatePathsTextBlock();
+                UpdateProfileDetails();
             }
         }
-    }
 
-    // Простой диалог для ввода текста
-    public class InputDialog : Window
-    {
-        private readonly TextBox _inputTextBox;
-
-        public InputDialog(string message, string title)
+        // Метод выбора пути сохранения для клавиатурных сочетаний
+        private void SelectShortcutPath_Click(object sender, RoutedEventArgs e)
         {
-            Title = title;
-            SizeToContent = SizeToContent.WidthAndHeight;
-            ResizeMode = ResizeMode.NoResize;
-
-            var stackPanel = new StackPanel();
-            stackPanel.Children.Add(new TextBlock { Text = message });
-
-            _inputTextBox = new TextBox { Margin = new Thickness(0, 5, 0, 0) };
-            stackPanel.Children.Add(_inputTextBox);
-
-            var okButton = new Button
+            var dialog = new VistaFolderBrowserDialog(); // Диалог выбора папки
+            if (dialog.ShowDialog() == true) // Если пользователь выбрал папку
             {
-                Content = "OK",
-                IsDefault = true,
-                Margin = new Thickness(0, 10, 0, 0)
-            };
-            okButton.Click += (s, e) => DialogResult = true;
-
-            stackPanel.Children.Add(okButton);
-            Content = stackPanel;
+                shortcutSavePath = dialog.SelectedPath; // Сохраняем выбранный путь
+                shortcutPathTextBlock.Text = $"Selected Path: {shortcutSavePath}"; // Обновляем текст в интерфейсе
+            }
         }
 
-        public string Result => _inputTextBox.Text;
+        // Метод выбора пути сохранения для конфигурации ленты
+        private void SelectRibbonPath_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new VistaFolderBrowserDialog(); // Диалог выбора папки
+            if (dialog.ShowDialog() == true) // Если пользователь выбрал папку
+            {
+                ribbonSavePath = dialog.SelectedPath; // Сохраняем выбранный путь
+                ribbonPathTextBlock.Text = $"Selected Path: {ribbonSavePath}"; // Обновляем текст в интерфейсе
+            }
+        }
+
+        // Метод закрытия программы
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close(); // Закрываем текущее окно
+        }
+
+        private void DeleteProfile_Click(object sender, RoutedEventArgs e)
+        {
+            if (comboBoxProfiles.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a profile to delete.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            var profileName = comboBoxProfiles.SelectedItem.ToString();
+
+            // Подтверждение удаления
+            var result = MessageBox.Show($"Are you sure you want to delete the profile '{profileName}'?", "Confirm Deletion", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result != MessageBoxResult.Yes)
+            {
+                return;
+            }
+
+            // Удаление записи профиля из словаря
+            if (profiles.ContainsKey(profileName))
+            {
+                profiles.Remove(profileName);
+
+                // Удаление папки профиля
+                var profilePath = Path.Combine(appPath, "Profiles", profileName);
+                if (Directory.Exists(profilePath))
+                {
+                    Directory.Delete(profilePath, true); // Рекурсивное удаление папки
+                }
+
+                // Сохранение обновленных профилей
+                SaveProfiles();
+                UpdateComboBoxProfiles();
+
+                MessageBox.Show($"Profile '{profileName}' has been deleted successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show($"Profile '{profileName}' does not exist.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }
