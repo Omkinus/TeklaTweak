@@ -1,0 +1,2 @@
+ShortcutSavePath=C:\Users\User\Downloads
+RibbonSavePath=C:\Users\User\AppData\Local\Trimble\Tekla Structures\2022.0\UI\Ribbons

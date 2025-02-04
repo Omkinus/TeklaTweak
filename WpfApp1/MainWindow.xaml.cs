@@ -5,7 +5,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Win32;
-using Ookii.Dialogs.Wpf; // Для VistaFolderBrowserDialog
+using Ookii.Dialogs.Wpf;
 
 namespace WpfApp1
 {
@@ -19,10 +19,12 @@ namespace WpfApp1
         private string ribbonSavePath = string.Empty;
         private readonly List<(string Name, string Path)> shortcutFiles = new List<(string Name, string Path)>();
         private readonly List<(string Name, string Path)> ribbonFiles = new List<(string Name, string Path)>();
+
         public MainWindow()
         {
             InitializeComponent();
             LoadProfiles(); // Загрузка профилей при запуске
+            LoadSettings(); // Загрузка настроек при запуске
             UpdateComboBoxProfiles(); // Обновление комбобокса профилей
             this.MouseDown += delegate { DragMove(); };
         }
@@ -235,7 +237,7 @@ namespace WpfApp1
 
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
-                Filter = "Ribbon Configuration Files (*.xml)|*.config|All files (*.*)|*.*",
+                Filter = "Ribbon Configuration Files (*.xml)|*.xml|All files (*.*)|*.*",
                 Title = "Select Ribbon Configuration File"
             };
 
@@ -349,6 +351,7 @@ namespace WpfApp1
             {
                 shortcutSavePath = dialog.SelectedPath; // Сохраняем выбранный путь
                 shortcutPathTextBlock.Text = $"Selected Path: {shortcutSavePath}"; // Обновляем текст в интерфейсе
+                SaveSettings(); // Сохраняем настройки
             }
         }
 
@@ -360,6 +363,7 @@ namespace WpfApp1
             {
                 ribbonSavePath = dialog.SelectedPath; // Сохраняем выбранный путь
                 ribbonPathTextBlock.Text = $"Selected Path: {ribbonSavePath}"; // Обновляем текст в интерфейсе
+                SaveSettings(); // Сохраняем настройки
             }
         }
 
@@ -407,6 +411,45 @@ namespace WpfApp1
             else
             {
                 MessageBox.Show($"Profile '{profileName}' does not exist.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        // Метод сохранения настроек
+        private void SaveSettings()
+        {
+            var settings = new List<string>
+            {
+                $"ShortcutSavePath={shortcutSavePath}",
+                $"RibbonSavePath={ribbonSavePath}"
+            };
+
+            File.WriteAllLines(Path.Combine(appPath, "settings.txt"), settings);
+        }
+
+        // Метод загрузки настроек
+        private void LoadSettings()
+        {
+            var settingsPath = Path.Combine(appPath, "settings.txt");
+            if (File.Exists(settingsPath))
+            {
+                var lines = File.ReadAllLines(settingsPath);
+                foreach (var line in lines)
+                {
+                    var parts = line.Split('=');
+                    if (parts.Length == 2)
+                    {
+                        if (parts[0] == "ShortcutSavePath")
+                        {
+                            shortcutSavePath = parts[1];
+                            shortcutPathTextBlock.Text = $"Selected Path: {shortcutSavePath}";
+                        }
+                        else if (parts[0] == "RibbonSavePath")
+                        {
+                            ribbonSavePath = parts[1];
+                            ribbonPathTextBlock.Text = $"Selected Path: {ribbonSavePath}";
+                        }
+                    }
+                }
             }
         }
     }

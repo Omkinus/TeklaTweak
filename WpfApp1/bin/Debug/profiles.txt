@@ -1,1 +1,2 @@
-bulka|C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Profiles\bulka||
+OLEG|C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Profiles\OLEG|KeyboardShortcuts.xml:C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Profiles\OLEG\shortcuts\KeyboardShortcuts.xml|
+IGOR|C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Profiles\IGOR||

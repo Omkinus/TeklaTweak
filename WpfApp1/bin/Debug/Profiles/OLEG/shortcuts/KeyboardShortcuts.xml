@@ -1,0 +1,439 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Ribbon Format="2016i">
+  <QuickAccessToolbar>
+    <SimpleButton X="0" Y="0" Width="1" Height="1" Command="Common.Save" Icon="command:ScalableIcon" ShowText="false" ShowIcon="true" />
+    <Separator X="1" Y="0" Width="1" Height="1" Orientation="Vertical" Thickness="1" />
+    <SimpleButton X="2" Y="0" Width="1" Height="1" Command="Common.Undo" Icon="command:ScalableIcon" ShowText="false" ShowIcon="true" />
+    <SimpleButton X="3" Y="0" Width="1" Height="1" Command="Edit.Redo" Icon="command:ScalableIcon" ShowText="false" ShowIcon="true" />
+  </QuickAccessToolbar>
+  <StaticTab>
+    <SplitButton X="0" Y="0" Width="2" Height="2" Command="Common.Interrupt" Icon="command:ScalableIcon" ShowText="false" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Common.Interrupt" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Edit.SelectAll" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="Edit.SelectPrevious" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="6" Width="8" Height="2" Command="Edit.SelectByIdentifier" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </SplitButton>
+    <SplitButton X="0" Y="2" Width="2" Height="2" Command="Inquiry.Object" Icon="command:ScalableIcon" ShowText="false" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Inquiry.Object" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Inquiry.PointCoordinates" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="Inquiry.CenterOfGravity" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="6" Width="8" Height="2" Command="Inquiry.Custom" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="8" Width="8" Height="2" Command="Inquiry.WeldedParts" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="10" Width="8" Height="2" Command="Inquiry.PrimaryWeldedPart" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="12" Width="8" Height="2" Command="Inquiry.AssemblyObjects" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="14" Width="8" Height="2" Command="Inquiry.ComponentObjects" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="16" Width="8" Height="2" Command="Inquiry.Phases" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="18" Width="8" Height="2" Command="Inquiry.ModelSize" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </SplitButton>
+  </StaticTab>
+  <Tab Header="translation:ribbon_Steel" IsCollapsed="false" IsUserDefined="false">
+    <SimpleButton X="0" Y="0" Width="3" Height="4" Command="Modeling.CreateSteelColumn" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="3" Y="0" Width="3" Height="4" Command="Modeling.CreateSteelBeam" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="6" Y="0" Width="4" Height="4" Command="Modeling.CreateSteelPolybeam" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="10" Y="0" Width="4" Height="4" Command="Modeling.CreateSteelCurvedBeam" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="14" Y="0" Width="4" Height="4" Command="Modeling.CreateSteelTwinProfile" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="18" Y="0" Width="4" Height="4" Command="Modeling.CreateSteelOrthogonalBeam" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="22" Y="0" Width="4" Height="4" Command="Modeling.CreateSteelSpiralBeam" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SplitButton X="26" Y="0" Width="3" Height="4" Command="Modeling.CreateSteelContourPlate" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Modeling.CreateSteelContourPlate" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="3" Command="Modeling.CreateCylindricalBentPlate" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="5" Width="8" Height="3" Command="Modeling.CreateConicalBentPlate" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="8" Width="8" Height="3" Command="Modeling.CreateStandaloneBend" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="11" Width="8" Height="3" Command="Modeling.CreateLoftedPlate" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </SplitButton>
+    <SimpleButton X="29" Y="0" Width="3" Height="4" Command="Bolts.CreateBolts" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SplitButton X="32" Y="0" Width="4" Height="4" Command="Weld.CreateBetweenParts" Text="command:ShortText" Icon="resource:Brush.CommandGallery.SteelWeld" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Weld.CreateBetweenParts" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Weld.CreateToPart" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="Weld.CreatePolygon" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <Separator X="0" Y="6" Width="8" Height="1" Orientation="Horizontal" Thickness="1" />
+      <SimpleButton X="0" Y="7" Width="8" Height="3" Command="Weld.PreparePart.WithPolygon" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="10" Width="8" Height="3" Command="Weld.PreparePart.WithAnotherPart" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="13" Width="8" Height="2" Command="Weld.ConvertToPolygonWeld" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </SplitButton>
+    <SimpleButton X="36" Y="0" Width="8" Height="1" Command="Modeling.CreateSteelItem" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="36" Y="1" Width="8" Height="2" Command="Bolts.EditBoltedParts" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <DropdownButton X="36" Y="3" Width="8" Height="1" Text="translation:albl_Assembly" Icon="resource:Brush.CommandGallery.SteelAssembly" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="3" Command="Assembly.MakeIntoAssembly" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="3" Width="8" Height="3" Command="Assembly.AddAsSubAssembly" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="6" Width="8" Height="3" Command="Assembly.SetAsNewMainObjectOfAssembly" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="9" Width="8" Height="3" Command="Assembly.RemoveFromAssembly" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="12" Width="8" Height="3" Command="Assembly.Explode" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="15" Width="8" Height="3" Command="Assembly.ExplodeSubAssembly" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+  </Tab>
+  <Tab Header="translation:ribbon_Concrete" IsCollapsed="false" IsUserDefined="false">
+    <SimpleButton X="0" Y="0" Width="8" Height="1" Command="Modeling.CreateConcreteColumn" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <DropdownButton X="0" Y="1" Width="8" Height="1" Text="translation:albl_Beam" Icon="resource:Brush.CommandGallery.ConcreteBeam" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Modeling.CreateConcreteBeam" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Modeling.CreateConcretePolybeam" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="Modeling.CreateConcreteSpiralBeam" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <DropdownButton X="0" Y="2" Width="8" Height="1" Text="translation:Commands.Modeling.CreateConcretePanel.ShortText" Icon="resource:Brush.CommandGallery.ConcretePanel" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Modeling.CreateConcretePanel" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Modeling.CreateWallLayout" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <DropdownButton X="0" Y="3" Width="8" Height="1" Text="translation:Commands.Modeling.CreateConcreteSlab.ShortText" Icon="resource:Brush.CommandGallery.ConcreteSlab" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Modeling.CreateConcreteSlab" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Modeling.CreateLoftedSlab" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="Modeling.CreateFloorLayout" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <DropdownButton X="8" Y="0" Width="8" Height="2" Text="translation:albl_Tooltip_IfcFooting" Icon="resource:Brush.CommandGallery.ConcretePadFooting" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Modeling.CreateConcretePadFooting" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Modeling.CreateConcreteStripFooting" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <SimpleButton X="8" Y="2" Width="8" Height="2" Command="Modeling.CreateConcreteItem" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+  </Tab>
+  <Tab Header="translation:albl_Rebar" IsCollapsed="false" IsUserDefined="false">
+    <SimpleButton X="0" Y="0" Width="7" Height="2" Command="Reinforcement.CreateCrossingBeamReinforcementSet" Text="translation:albl_Crossing" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="0" Y="2" Width="7" Height="2" Command="Reinforcement.CreateLongitudinalBeamReinforcementSet" Text="translation:albl_Longitudinal" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="7" Y="0" Width="7" Height="2" Command="Reinforcement.CreateSlabOrWallReinforcementSet" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="7" Y="2" Width="7" Height="2" Command="Reinforcement.CreateRebarsOnSurface" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <DropdownButton X="14" Y="0" Width="3" Height="4" Text="translation:albl_More" Icon="resource:Brush.CommandGallery.RSMore" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Reinforcement.CreateReinforcementSetViaPointInput" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Catalogs.RebarSetShapeCatalog" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="Reinforcement.RegenerateSelectedReinforcementSets" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <DropdownButton X="17" Y="0" Width="4" Height="4" Text="translation:albl_Visibility" Icon="resource:Brush.CommandGallery.ConcreteRebarsetDisplayOptions" ShowText="true" ShowIcon="true">
+      <CheckButton X="0" Y="0" Width="8" Height="2" Command="Reinforcement.RebarSetLegFaceVisibility" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <CheckButton X="0" Y="2" Width="8" Height="2" Command="Reinforcement.RebarSetGuidelineVisibility" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <CheckButton X="0" Y="4" Width="8" Height="2" Command="Reinforcement.RebarSetPropertyStripVisibility" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <CheckButton X="0" Y="6" Width="8" Height="2" Command="Reinforcement.RebarSetSplitterVisibility" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <CheckButton X="0" Y="8" Width="8" Height="2" Command="Reinforcement.RebarSetEndDetailStripVisibility" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <CheckButton X="0" Y="10" Width="8" Height="2" Command="Reinforcement.RebarDimensionVisibility" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <Separator X="0" Y="12" Width="8" Height="1" Orientation="Horizontal" Thickness="1" />
+      <CheckButton X="0" Y="13" Width="8" Height="2" Command="Reinforcement.RebarSetGroupColoring" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <Separator X="21" Y="0" Width="1" Height="4" Orientation="Vertical" Thickness="1" />
+    <DropdownButton X="22" Y="0" Width="4" Height="4" Text="translation:albl_Bar_group" Icon="resource:Geometry.ObjectRebarGroup" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Reinforcement.CreateReinforcingBarGroup" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Reinforcement.CreateCurvedReinforcingBarGroup" Text="translation:albl_Curved_group" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="Reinforcement.CreateCircularRebarGroup" Text="translation:albl_Circular_group" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="6" Width="8" Height="2" Command="Reinforcements.RebarShapeCatalog" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <SimpleButton X="26" Y="0" Width="4" Height="4" Command="Reinforcement.CreateRebar" Text="translation:albl_Single_bar" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="30" Y="0" Width="3" Height="4" Command="Reinforcement.CreateReinforcementMesh" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="33" Y="0" Width="3" Height="4" Command="Reinforcement.CreateStrandPattern" Text="translation:albl_Strand" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <DropdownButton X="36" Y="0" Width="4" Height="4" Text="translation:albl_Edit" Icon="resource:Brush.CommandGallery.RSEdit" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Reinforcement.GroupRebars" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Reinforcement.UngroupRebars" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <Separator X="0" Y="4" Width="8" Height="1" Orientation="Horizontal" Thickness="1" />
+      <SimpleButton X="0" Y="5" Width="8" Height="2" Command="Reinforcement.CreateReinforcementSplice" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <Separator X="40" Y="0" Width="1" Height="4" Orientation="Vertical" Thickness="1" />
+    <DropdownButton X="41" Y="0" Width="4" Height="4" Text="translation:albl_Assembly" Icon="resource:Brush.CommandGallery.SteelAssembly" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="3" Command="Reinforcement.CreateRebarAssembly" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="3" Width="8" Height="3" Command="RebarAssembly.AddAsSubAssembly" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="6" Width="8" Height="3" Command="RebarAssembly.SetAsNewMainObjectOfAssembly" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="9" Width="8" Height="3" Command="RebarAssembly.RemoveFromAssembly" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="12" Width="8" Height="3" Command="RebarAssembly.Explode" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="15" Width="8" Height="3" Command="RebarAssembly.ExplodeSubAssembly" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <SimpleButton X="45" Y="0" Width="4" Height="4" Command="Plugin.CatalogPluginComponentItem?RebarCoupler" Text="translation:albl_Coupler" Icon="resource:Brush.CommandGallery.RSCoupler" ShowText="true" ShowIcon="true" Tooltip="tooltip:GUID-2A172998-E2DA-4D13-888C-F16A68AE581E" />
+    <SimpleButton X="49" Y="0" Width="4" Height="4" Command="Plugin.CatalogPluginComponentItem?RebarEndAnchor" Text="translation:albl_Anchor" Icon="resource:Brush.CommandGallery.RSAnchor" ShowText="true" ShowIcon="true" Tooltip="tooltip:GUID-ECCA5519-557B-4E59-95FA-4703C9B84B84" />
+    <SimpleButton X="53" Y="0" Width="4" Height="4" Command="Tools.RebarShapeManager" Text="command:ShortText" Icon="resource:Brush.CommandGallery.RSShapeManager" ShowText="true" ShowIcon="true" />
+  </Tab>
+  <Tab Header="translation:ribbon_Edit" IsCollapsed="false" IsUserDefined="false">
+    <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Detailing.CutPart.WithPolygon" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="0" Y="2" Width="8" Height="1" Command="Detailing.CutPart.WithLine" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="0" Y="3" Width="8" Height="1" Command="Detailing.CutPart.WithAnotherPart" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="8" Y="0" Width="8" Height="2" Command="Detailing.FitPartEnd" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="8" Y="2" Width="8" Height="1" Command="Edit.Split" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="8" Y="3" Width="8" Height="1" Command="Edit.Combine" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="16" Y="0" Width="8" Height="2" Command="Chamfer.CreateForPartEdge" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <DropdownButton X="16" Y="2" Width="8" Height="2" Text="translation:albl_Inquire_added_material" Icon="resource:Brush.CommandGallery.EditPartAttachTo" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="3" Command="Material.AttachToPart" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="3" Width="8" Height="3" Command="Material.DetachFromPart" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="6" Width="8" Height="3" Command="Material.ExplodePart" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <SimpleButton X="24" Y="0" Width="8" Height="2" Command="Edit.CreateItemFromNative" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="24" Y="2" Width="8" Height="2" Command="Edit.CreateShapeFromNative" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <DropdownButton X="32" Y="0" Width="8" Height="2" Text="translation:albl_Components" Icon="resource:Brush.CommandGallery.EditApplicationsAndComponents" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="3" Command="Components.ApplicationsAndComponents" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="3" Width="8" Height="3" Command="Components.CreateCurrentConnection" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="6" Width="8" Height="3" Command="AutoConnection.Create" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <DropdownButton X="32" Y="2" Width="8" Height="1" Text="translation:ribbon_Surfaces" Icon="resource:Brush.CommandGallery.EditSurface" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="3" Command="SurfaceTreatment.CreateToPartFace" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="3" Width="8" Height="3" Command="SurfaceTreatment.CreateToSelectedAreaOnPartFace" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="6" Width="8" Height="3" Command="SurfaceTreatment.CreateToAllFacesOfPart" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <Separator X="0" Y="9" Width="8" Height="1" Orientation="Horizontal" Thickness="1" />
+      <SimpleButton X="0" Y="10" Width="8" Height="3" Command="SurfaceTreatment.CreateSurfaceObject" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <DropdownButton X="32" Y="3" Width="8" Height="1" Text="translation:albl_Compare" Icon="resource:Brush.CommandGallery.EditCompare" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Tools.CompareParts" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Tools.CompareAssemblies" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <SplitButton X="40" Y="0" Width="4" Height="4" Command="Measure.Distance" Text="translation:ribbon_Measure" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Measure.Distance" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Measure.HorizontalDistance" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="Measure.VerticalDistance" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="6" Width="8" Height="2" Command="Measure.Angle" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="8" Width="8" Height="2" Command="Measure.Arc" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="10" Width="8" Height="2" Command="Measure.BoltSpacing" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </SplitButton>
+    <SimpleButton X="44" Y="0" Width="6" Height="2" Command="Edit.Copy" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <DropdownButton X="44" Y="2" Width="6" Height="2" Text="translation:lbl_Copy_special" Icon="resource:Brush.CommandGallery.EditCopyLinear" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Edit.CopySpecial.Linear" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Edit.CopySpecial.Mirror" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="Edit.CopySpecial.Rotate" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="6" Width="8" Height="2" Command="Edit.CopySpecial.ToAnotherObject" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="8" Width="8" Height="3" Command="Edit.CopySpecial.AllContentToAnotherObject" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="11" Width="8" Height="2" Command="Edit.CopySpecial.ToAnotherPlane" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="13" Width="8" Height="2" Command="Edit.CopySpecial.FromAnotherModel" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <SimpleButton X="50" Y="0" Width="6" Height="2" Command="Edit.Move" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <DropdownButton X="50" Y="2" Width="6" Height="2" Text="translation:lbl_Move_special" Icon="resource:Brush.CommandGallery.EditMoveLinear" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Edit.MoveSpecial.Linear" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Edit.MoveSpecial.Rotate" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="Edit.MoveSpecial.Mirror" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="6" Width="8" Height="2" Command="Edit.MoveSpecial.ToAnotherPlane" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="8" Width="8" Height="2" Command="Edit.MoveSpecial.ToAnotherObject" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <SimpleButton X="56" Y="0" Width="5" Height="4" Command="Modeling.BatchEditing" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SplitButton X="61" Y="0" Width="3" Height="4" Command="Modeling.CreateRectangularGrid" Text="translation:Commands.Modeling.CreateGrid.ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Modeling.CreateRectangularGrid" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Modeling.CreateRadialGrid" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="Modeling.AddGridLine" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </SplitButton>
+    <DropdownButton X="64" Y="0" Width="3" Height="4" Text="translation:albl_Points" Icon="resource:Brush.CommandGallery.ConstructionPoint" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Points.AddOnLine" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Points.AddOnPlane" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="Points.AddParallelToTwoPoints" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="6" Width="8" Height="2" Command="Points.AddAlongExtensionOfTwoPoints" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="8" Width="8" Height="2" Command="Points.AddProjectedPointsOnLine" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="10" Width="8" Height="3" Command="Points.AddUsingCenterAndArcPoints" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="13" Width="8" Height="3" Command="Points.AddUsingThreeArcPoints" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="16" Width="8" Height="2" Command="Points.AddTangentToCircle" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="18" Width="8" Height="2" Command="Points.AddAtAnyPosition" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="20" Width="8" Height="2" Command="Points.AddBoltPoints" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="22" Width="8" Height="2" Command="Points.AddAtIntersectionOfTwoLines" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="24" Width="8" Height="2" Command="Points.AddAtIntersectionOfPlaneAndLine" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="26" Width="8" Height="2" Command="Points.AddAtIntersectionOfPartAndLine" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="28" Width="8" Height="2" Command="Points.AddAtIntersectionOfCircleAndLine" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="30" Width="8" Height="2" Command="Points.AddAtIntersectionOfTwoPartAxes" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <DropdownButton X="67" Y="0" Width="8" Height="2" Text="translation:ribbon_Construction_object" Icon="resource:Brush.CommandGallery.ConstructionObject" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Modeling.AddConstructionLine" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Modeling.AddConstructionPlane" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="Modeling.AddConstructionCircle" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="6" Width="8" Height="2" Command="Modeling.AddConstructionArc" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="8" Width="8" Height="2" Command="Modeling.AddConstructionPolycurve" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="10" Width="8" Height="2" Command="Modeling.AddConstructionObjectWithOffset" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <DropdownButton X="67" Y="2" Width="8" Height="2" Text="translation:ribbon_Parametric_modeling" Icon="resource:Brush.CommandGallery.EditParametricModeling" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Modeling.AddFixedDistance" Text="command:FullText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Modeling.AddReferenceDistance" Text="command:FullText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="Modeling.Variables" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+  </Tab>
+  <Tab Header="translation:ribbon_View" IsCollapsed="false" IsUserDefined="false">
+    <SimpleButton X="0" Y="0" Width="4" Height="4" Command="Views.ViewList" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <DropdownButton X="4" Y="0" Width="4" Height="4" Text="translation:ribbon_New_view" Icon="resource:Brush.CommandGallery.ViewCreateViewOfModel" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="View.CreateModelBasicView" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="View.CreateModelViewUsingTwoPoints" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="View.CreateModelViewUsingThreePoints" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="6" Width="8" Height="2" Command="View.CreateModelViewOnWorkPlane" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="8" Width="8" Height="2" Command="View.CreateModelViewAlongGridLines" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="10" Width="8" Height="2" Command="View.CreateModelViewUsingLevels" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <Separator X="0" Y="12" Width="8" Height="1" Orientation="Horizontal" Thickness="1" />
+      <SimpleButton X="0" Y="13" Width="8" Height="2" Command="View.CreateModelViewOnPlane" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="15" Width="8" Height="2" Command="View.CreateModelViewOnPartFrontPlane" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="17" Width="8" Height="2" Command="View.CreateModelViewOnPartTopPlane" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="19" Width="8" Height="2" Command="View.CreateModelViewOnPartBackPlane" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="21" Width="8" Height="2" Command="View.CreateModelViewOnPartBottomPlane" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <Separator X="0" Y="23" Width="8" Height="1" Orientation="Horizontal" Thickness="1" />
+      <SimpleButton X="0" Y="24" Width="8" Height="2" Command="View.CreatePart3DView" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="26" Width="8" Height="2" Command="View.CreatePartDefaultViews" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="28" Width="8" Height="2" Command="View.CreatePartUndeformedView" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <Separator X="0" Y="30" Width="8" Height="1" Orientation="Horizontal" Thickness="1" />
+      <SimpleButton X="0" Y="31" Width="8" Height="2" Command="View.CreateComponent3DView" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="33" Width="8" Height="2" Command="View.CreateComponentDefaultViews" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+    </DropdownButton>
+    <SplitButton X="8" Y="0" Width="4" Height="4" Command="View.CreateClipPlane" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="3" Command="View.CreateClipPlane" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="3" Width="8" Height="3" Command="View.DeleteAllClipPlanes" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </SplitButton>
+    <DropdownButton X="12" Y="0" Width="5" Height="4" Text="translation:ribbon_Work_area" Icon="resource:Brush.CommandGallery.ViewWorkarea" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="3" Command="View.FitToEntireModel.AllViews" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="3" Width="8" Height="3" Command="View.FitToEntireModel" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="6" Width="8" Height="3" Command="View.FitToSelectedParts.AllViews" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="9" Width="8" Height="3" Command="View.FitToSelectedParts" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="12" Width="8" Height="3" Command="View.FitUsingTwoPoints" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <SplitButton X="17" Y="0" Width="4" Height="4" Command="Views.RedrawAll" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="3" Command="Views.RedrawAll" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="3" Width="8" Height="3" Command="Views.UpdateAll" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </SplitButton>
+    <SplitButton X="21" Y="0" Width="5" Height="4" Command="View.SetWorkPlane.UsingWorkplaneTool" Text="translation:ribbon_Workplane" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="3" Command="View.SetWorkPlane.UsingWorkplaneTool" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="3" Width="8" Height="3" Command="View.SetWorkPlane.ParallelToXYZ" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="6" Width="8" Height="3" Command="View.SetWorkPlane.UsingOnePoint" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="9" Width="8" Height="3" Command="View.SetWorkPlane.UsingTwoPoints" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="12" Width="8" Height="3" Command="View.SetWorkPlane.UsingThreePoints" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="15" Width="8" Height="3" Command="View.SetWorkPlane.ParallelToViewPlane" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </SplitButton>
+    <SplitButton X="26" Y="0" Width="4" Height="4" Command="Representation.Parts.ShadedWireframe" Text="translation:albl_Rendering" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Representation.Parts.Wireframe" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Representation.Parts.ShadedWireframe" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="Representation.Parts.HiddenLines" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="6" Width="8" Height="2" Command="Representation.Parts.Rendered" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="8" Width="8" Height="2" Command="Representation.Parts.ShowOnlySelected" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <Separator X="0" Y="10" Width="8" Height="1" Orientation="Horizontal" Thickness="1" />
+      <SimpleButton X="0" Y="11" Width="8" Height="2" Command="Representation.Components.Wireframe" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="13" Width="8" Height="2" Command="Representation.Components.ShadedWireframe" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="15" Width="8" Height="2" Command="Representation.Components.HiddenLines" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="17" Width="8" Height="2" Command="Representation.Components.Rendered" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="19" Width="8" Height="2" Command="Representation.Components.ShowOnlySelected" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="21" Width="8" Height="2" Command="Representation.ShowComponentContent" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <Separator X="0" Y="23" Width="8" Height="1" Orientation="Horizontal" Thickness="1" />
+      <SimpleButton X="0" Y="24" Width="8" Height="2" Command="Representation.References.Wireframe" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="26" Width="8" Height="2" Command="Representation.References.ShadedWireframe" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="28" Width="8" Height="2" Command="Representation.References.HiddenLines" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="30" Width="8" Height="2" Command="Representation.References.Rendered" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="32" Width="8" Height="2" Command="Representation.References.ShowOnlySelected" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </SplitButton>
+    <SplitButton X="30" Y="0" Width="4" Height="4" Command="Visualizer.VisualizeAll" Text="translation:lbl_Visualize" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Visualizer.VisualizeSelected" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Visualizer.VisualizeAll" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="Visualizer.MaterialTypeMapping" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </SplitButton>
+    <SimpleButton X="34" Y="0" Width="8" Height="2" Command="View.TogglePerspective" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <DropdownButton X="34" Y="2" Width="8" Height="1" Text="translation:ribbon_Navigate" Icon="resource:Brush.CommandGallery.ViewNavigate" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="View.Rotate" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="View.Rotate.SetViewPoint" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="View.Pan" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <DropdownButton X="34" Y="3" Width="8" Height="1" Text="translation:albl_Zoom" Icon="resource:Brush.CommandGallery.ViewZoom" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="View.ZoomInSpecial" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="View.ZoomOutSpecial" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="View.ZoomOriginal" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="6" Width="8" Height="2" Command="View.ZoomPrevious" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="8" Width="8" Height="3" Command="View.ZoomToSelected" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <SimpleButton X="42" Y="0" Width="8" Height="1" Command="View.Fly" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="42" Y="1" Width="8" Height="1" Command="View.Properties" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="42" Y="2" Width="8" Height="1" Command="Representation.ObjectRepresentation" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <DropdownButton X="42" Y="3" Width="8" Height="1" Text="translation:albl_Snapshot" Icon="resource:Brush.CommandGallery.ViewScreenshot" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Tools.Screenshot" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Tools.CreatePreviewImage" Text="command:FullText" ShowText="true" ShowIcon="false" />
+    </DropdownButton>
+  </Tab>
+  <Tab Header="translation:ribbon_Drawings_reports" IsCollapsed="false" IsUserDefined="false">
+    <SimpleButton X="0" Y="0" Width="4" Height="4" Command="Drawing.DrawingList" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <DropdownButton X="4" Y="0" Width="5" Height="4" Text="translation:ribbon_Drawing_properties" Icon="resource:Brush.CommandGallery.DrawRepProperties" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Drawing.SinglePartDrawingProperties" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Drawing.AssemblyDrawingProperties" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="Drawing.GeneralArrangementDrawingProperties" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="6" Width="8" Height="2" Command="Drawing.MultiDrawingProperties" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="8" Width="8" Height="2" Command="Drawing.DrawingLayout" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <SplitButton X="9" Y="0" Width="5" Height="4" Command="Drawing.CreateFabricationDrawing" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Drawing.CreateFabricationDrawing" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <Separator X="0" Y="2" Width="8" Height="1" Orientation="Horizontal" Thickness="1" />
+      <CheckButton X="0" Y="3" Width="8" Height="2" Command="Drawing.ToggleFabricationDrawingDialog" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <CheckButton X="0" Y="5" Width="8" Height="2" Command="Drawing.ToggleFabricationSmartCreate" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </SplitButton>
+    <SimpleButton X="14" Y="0" Width="5" Height="4" Command="Drawing.CreateGeneralArrangementDrawing" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="19" Y="0" Width="5" Height="4" Command="Drawing.CreateDrawing" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <DropdownButton X="24" Y="0" Width="8" Height="2" Text="translation:albl_Perform_numbering" Icon="resource:Brush.CommandGallery.DrawRepNumbering" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="3" Command="Numbering.NumberSeriesOfSelectedObjects" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="3" Width="8" Height="2" Command="Numbering.NumberWelds" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="5" Width="8" Height="2" Command="Numbering.NumberModifiedObjects" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <DropdownButton X="24" Y="2" Width="8" Height="2" Text="translation:j_d_j_Multi_drawing" Icon="resource:Brush.CommandGallery.DrawRepDrawingMulti" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Drawing.CreateEmptyMultiDrawing" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Drawing.CreateMultiDrawing.FromSelectedDrawings" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="Drawing.CreateMultiDrawing.FromSelectedDrawings.WithOriginalLayout" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="6" Width="8" Height="3" Command="Drawing.CreateMultiDrawing.FromSinglePartDrawings.FromSelectedPart" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="9" Width="8" Height="3" Command="Drawing.CreateMultiDrawing.FromSinglePartDrawings.FromSelectedPart.WithOriginalLayout" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="12" Width="8" Height="3" Command="Drawing.CreateMultiDrawing.FromAssemblyDrawings.FromSelectedParts" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="15" Width="8" Height="4" Command="Drawing.CreateMultiDrawing.FromAssemblyDrawings.FromSelectedParts.WithOriginalLayout" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+    </DropdownButton>
+    <DropdownButton X="32" Y="0" Width="8" Height="2" Text="translation:albl_Numbering_settings" Icon="resource:Brush.CommandGallery.DrawRepProperties" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Numbering.Settings" Text="command:FullText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="2" Width="8" Height="3" Command="Numbering.SavePreliminaryNumbers" Text="command:FullText" ShowText="true" ShowIcon="false" />
+    </DropdownButton>
+    <DropdownButton X="32" Y="2" Width="8" Height="2" Text="translation:lbl_Change_Number" Icon="resource:Brush.CommandGallery.DrawRepNumbering" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Numbering.ChangePartNumber" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Numbering.ChangeAssemblyNumber" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="Numbering.ChangePartMultiNumber" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="6" Width="8" Height="2" Command="Numbering.ChangeAssemblyMultiNumber" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="8" Width="8" Height="2" Command="Numbering.ChangeFamilyNumber" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <Separator X="0" Y="10" Width="8" Height="1" Orientation="Horizontal" Thickness="1" />
+      <SimpleButton X="0" Y="11" Width="8" Height="2" Command="Numbering.ClearPartAndAssemblyNumbers" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="13" Width="8" Height="2" Command="Numbering.ClearPartNumbers" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="15" Width="8" Height="2" Command="Numbering.ClearAssemblyNumbers" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <SimpleButton X="40" Y="0" Width="3" Height="4" Command="Reports.CreateReport" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+  </Tab>
+  <Tab Header="translation:ribbon_Manage" IsCollapsed="false" IsUserDefined="false">
+    <SimpleButton X="0" Y="0" Width="5" Height="4" Command="Tools.Organizer" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="5" Y="0" Width="8" Height="2" Command="Modeling.OpenBuildingHierarchy" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="5" Y="2" Width="8" Height="2" Command="Modeling.CreateNewSpace" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="13" Y="0" Width="8" Height="2" Command="Tools.PhaseManager" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="13" Y="2" Width="8" Height="2" Command="Tools.ClashCheckManager" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="21" Y="0" Width="8" Height="2" Command="Tools.ConvertIFCObjects" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="21" Y="2" Width="8" Height="2" Command="Tools.LayoutManager" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="29" Y="0" Width="3" Height="4" Command="LockManager.ObjectLocks" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="32" Y="0" Width="8" Height="1" Command="Tools.TaskManager" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="32" Y="1" Width="8" Height="1" Command="Tools.Sequencer" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="32" Y="2" Width="8" Height="1" Command="Tools.Lotting" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="32" Y="3" Width="8" Height="1" Command="Tools.ProjectStatusVisualization" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+  </Tab>
+  <Tab Header="translation:ribbon_Analysis_design" IsCollapsed="false" IsUserDefined="false">
+    <SimpleButton X="0" Y="0" Width="6" Height="4" Command="Analysis.AnalysisAndModels" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="6" Y="0" Width="4" Height="4" Command="Loads.LoadGroups" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SplitButton X="10" Y="0" Width="4" Height="4" Command="Loads.CreateLineLoad" Text="translation:albl_Load_analysis" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Loads.CreateLineLoad" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Loads.CreatePointLoad" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="Loads.CreateAreaLoad" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="6" Width="8" Height="2" Command="Loads.CreateUniformLoad" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="8" Width="8" Height="2" Command="Loads.CreateWindLoad" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="10" Width="8" Height="2" Command="Loads.CreateTemperatureLoad" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </SplitButton>
+    <SimpleButton X="14" Y="0" Width="4" Height="4" Command="Analysis.CreateNode" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="18" Y="2" Width="8" Height="2" Command="Analysis.MergeSelectedNodes" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <DropdownButton X="26" Y="0" Width="8" Height="2" Text="translation:ribbon_Part_analysis_properties" Icon="resource:Brush.CommandGallery.ADAnalyzePartProperties" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="1" Command="Analysis.SteelBeamProperties" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="1" Width="8" Height="1" Command="Analysis.SteelOrthogonalBeamProperties" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="2" Width="8" Height="1" Command="Analysis.SteelColumnProperties" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="3" Width="8" Height="1" Command="Analysis.SteelTwinProfileProperties" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="4" Width="8" Height="1" Command="Analysis.SteelContourPlateProperties" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <Separator X="0" Y="5" Width="8" Height="1" Orientation="Horizontal" Thickness="1" />
+      <SimpleButton X="0" Y="6" Width="8" Height="1" Command="Analysis.ConcretePadFootingProperties" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="7" Width="8" Height="1" Command="Analysis.ConcreteStripFootingProperties" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="8" Width="8" Height="1" Command="Analysis.ConcreteColumnProperties" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="9" Width="8" Height="1" Command="Analysis.ConcreteBeamProperties" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="10" Width="8" Height="1" Command="Analysis.ConcreteSlabProperties" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+      <SimpleButton X="0" Y="11" Width="8" Height="1" Command="Analysis.ConcretePanelProperties" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+    </DropdownButton>
+    <DropdownButton X="26" Y="2" Width="8" Height="2" Text="translation:ribbon_Load_properties" Icon="resource:Brush.CommandGallery.ADLoadProperties" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Loads.LineLoadProperties" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Loads.PointLoadProperties" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="Loads.AreaLoadProperties" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="6" Width="8" Height="2" Command="Loads.UniformLoadProperties" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="8" Width="8" Height="2" Command="Loads.WindLoadProperties" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="10" Width="8" Height="2" Command="Loads.TemperatureLoadProperties" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <SimpleButton X="34" Y="0" Width="8" Height="2" Command="Analysis.ResetEditingOfSelectedParts" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="34" Y="2" Width="8" Height="2" Command="Analysis.PartProperties" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <CheckButton X="42" Y="0" Width="8" Height="1" Command="Analysis.ToggleShowNodeNumbers" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+    <CheckButton X="42" Y="1" Width="8" Height="1" Command="Analysis.ToggleShowMemberNumbers" Text="command:ShortText" ShowText="true" ShowIcon="false" />
+  </Tab>
+  <Tab Header="translation:Commands.Export.TrimbleConnector.ShortText" IsCollapsed="false" IsUserDefined="false">
+    <SplitButton X="0" Y="0" Width="4" Height="4" Command="TrimbleConnect.Web" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="TrimbleConnect.ProjectData" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="TrimbleConnect.ProjectModel" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="TrimbleConnect.ProjectTeam" Text="command:FullText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    </SplitButton>
+    <SimpleButton X="4" Y="0" Width="4" Height="4" Command="TrimbleConnect.ProjectPublish" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="8" Y="0" Width="4" Height="4" Command="TrimbleConnect.ConnectorModels" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="12" Y="0" Width="4" Height="4" Command="TrimbleConnect.ConnectorTodos" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="16" Y="0" Width="4" Height="4" Command="TrimbleConnect.Desktop" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="20" Y="0" Width="2" Height="2" Command="TrimbleConnect.AdjustTsView" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="20" Y="2" Width="2" Height="2" Command="TrimbleConnect.SelectTsObjects" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="22" Y="0" Width="2" Height="2" Command="TrimbleConnect.AdjustTcdView" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+    <SimpleButton X="22" Y="2" Width="2" Height="2" Command="TrimbleConnect.SelectTcdObjects" Text="command:ShortText" Icon="command:ScalableIcon" ShowText="true" ShowIcon="true" />
+  </Tab>
+</Ribbon>

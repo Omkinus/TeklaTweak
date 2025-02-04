@@ -55,3 +55,4 @@ C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Tekla.Structures.Catalo
 C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Tekla.Structures.Dialog.xml
 C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Tekla.Structures.Drawing.xml
 C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\bin\Debug\Tekla.Structures.Plugins.xml
+C:\Users\User\_teklaplugins\TeklaTweak\WpfApp1\obj\Debug\WpfApp1.csprojAssemblyReference.cache
