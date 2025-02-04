@@ -185,15 +185,20 @@ namespace WpfApp1
                 string filePath = openFileDialog.FileName;
                 var profile = profiles[currentProfileName];
 
-                string fileName = Path.GetFileName(filePath);
-                string destinationPath = Path.Combine(profile.Path, "shortcuts", fileName);
+                // Имя файла будет всегда "KeyboardShortcuts.xml"
+                string fixedFileName = "KeyboardShortcuts.xml";
+                string destinationPath = Path.Combine(profile.Path, "shortcuts", fixedFileName);
 
                 try
                 {
+                    // Копируем файл с новым именем
                     File.Copy(filePath, destinationPath, true);
-                    var fileEntry = (fileName, destinationPath);
 
-                    if (!profile.ShortcutFiles.Exists(f => f.Name == fileName))
+                    // Создаем запись о файле
+                    var fileEntry = (fixedFileName, destinationPath);
+
+                    // Проверяем, существует ли уже такой файл в профиле
+                    if (!profile.ShortcutFiles.Exists(f => f.Name == fixedFileName))
                     {
                         profile.ShortcutFiles.Add(fileEntry);
                         SaveProfiles();
@@ -201,7 +206,7 @@ namespace WpfApp1
                     }
                     else
                     {
-                        MessageBox.Show($"A file with the name '{fileName}' already exists.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show($"A file with the name '{fixedFileName}' already exists and has been replaced.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
                 catch (Exception ex)
@@ -222,7 +227,7 @@ namespace WpfApp1
 
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
-                Filter = "Ribbon Configuration Files (*.config)|*.config|All files (*.*)|*.*",
+                Filter = "Ribbon Configuration Files (*.xml)|*.config|All files (*.*)|*.*",
                 Title = "Select Ribbon Configuration File"
             };
 
@@ -268,20 +273,53 @@ namespace WpfApp1
 
             var profile = profiles[currentProfileName];
 
+            // Проверяем, что выбраны пути для сохранения
+            if (string.IsNullOrEmpty(shortcutSavePath) || string.IsNullOrEmpty(ribbonSavePath))
+            {
+                MessageBox.Show("Please select save paths for both shortcuts and ribbon configurations.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            // Импортируем файлы клавиатурных сочетаний
             if (profile.ShortcutFiles.Any())
             {
                 foreach (var file in profile.ShortcutFiles)
                 {
-                    MessageBox.Show($"Importing shortcut file: {file.Path}", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                    try
+                    {
+                        string destinationPath = Path.Combine(shortcutSavePath, Path.GetFileName(file.Path));
+                        File.Copy(file.Path, destinationPath, true); // true означает замену файла, если он уже существует
+                        MessageBox.Show($"Shortcut file imported: {destinationPath}", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error importing shortcut file: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
             }
 
+            // Импортируем файлы конфигурации ленты
             if (profile.RibbonFiles.Any())
             {
                 foreach (var file in profile.RibbonFiles)
                 {
-                    MessageBox.Show($"Importing ribbon configuration file: {file.Path}", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                    try
+                    {
+                        string destinationPath = Path.Combine(ribbonSavePath, Path.GetFileName(file.Path));
+                        File.Copy(file.Path, destinationPath, true); // true означает замену файла, если он уже существует
+                        MessageBox.Show($"Ribbon configuration file imported: {destinationPath}", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error importing ribbon file: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
+            }
+
+            // Если нет файлов для импорта
+            if (!profile.ShortcutFiles.Any() && !profile.RibbonFiles.Any())
+            {
+                MessageBox.Show("No files to import for the selected profile.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

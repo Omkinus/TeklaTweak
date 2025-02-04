@@ -8,7 +8,7 @@
         AllowsTransparency="True" 
         Background="#00000000"
         BorderThickness="1"
-        Height="565" Width="514" BorderBrush="#FF080808">
+         Width="512.5" BorderBrush="#FF080808" Height="656.5">
 
     <!-- Определение ресурсов окна -->
     <Window.Resources>
@@ -80,9 +80,8 @@
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="Padding" Value="15"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Margin" Value="0,10,0,0"/>
+            
+            <Setter Property="Margin" Value="0,0,0,0"/>
             <Setter Property="BorderThickness" Value="1"/>
             <!-- Рамка толщиной 1 -->
             <Setter Property="BorderBrush" Value="#FF252525"/>
@@ -116,14 +115,18 @@
         </Style>
     </Window.Resources>
 
-    <Grid Background="#FFF9F9F9" Margin="0,0,0,0">
+    <Grid Background="#FFF9F9F9" Height="672" VerticalAlignment="Top">
         <!-- Главный фон -->
-        <!-- Контент -->
         <Grid Margin="20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
+                <!-- Заголовок -->
                 <RowDefinition Height="*"/>
+                <!-- Основной контент -->
+                <RowDefinition Height="Auto"/>
+                <!-- Кнопка IMPORT -->
             </Grid.RowDefinitions>
+
             <!-- Заголовок с кнопкой закрытия -->
             <DockPanel Grid.Row="0" Background="#FF0D47A1" Height="50" Margin="0,0,0,20">
                 <TextBlock Text="TeklaTweak" 
@@ -134,68 +137,65 @@
                     Click="CloseButton_Click" DockPanel.Dock="Right"
                     FontSize="18" Padding="5"/>
             </DockPanel>
+
             <!-- Основной контент -->
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <!-- Блок управления профилями -->
-                <Border Grid.Column="0" CornerRadius="10" Padding="20" Margin="0">
-                    <StackPanel>
-                        <!-- Заголовок блока -->
-                        <TextBlock Text="Profile Management" FontSize="20" Foreground="#FF4F4F4F" FontWeight="Bold" Margin="0,0,0,10"/>
+            <Border Grid.Row="1" CornerRadius="10" Padding="20" Margin="0">
+                <StackPanel>
+                    <!-- Блок управления профилями -->
+                    <TextBlock Text="Profile Management" FontSize="20" Foreground="#FF4F4F4F" FontWeight="Bold" Margin="0,0,0,10"/>
 
-                        <!-- Выбор существующего профиля -->
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                            <TextBlock Text="Select Profile:" FontSize="14" Foreground="#FF0D0D0E" Margin="0,0,10,0"/>
-                            <ComboBox Name="comboBoxProfiles" Width="200" Height="40" Background="#FFBBDEFB" Foreground="Black" BorderThickness="1" FontSize="14" SelectionChanged="ComboBoxProfiles_SelectionChanged" BorderBrush="Black" />
-                            <Button Content="Delete Profile" Click="DeleteProfile_Click" Style="{StaticResource CustomButtonStyle}" Width="120" Margin="10,0,0,0"/>
-                        </StackPanel>
-
-                        <!-- Ввод имени нового профиля -->
-                        <TextBlock Text="Create New Profile:" FontSize="14" Foreground="#FF0D0D0E" Margin="0,0,0,5"/>
-                        <TextBox Name="textBoxNewProfileName" Background="#FFFFFFFF" BorderThickness="1" FontSize="14" Margin="0,0,0,10"/>
-
-                        <!-- Создание нового профиля -->
-                        <Button Content="Create Profile" Click="CreateProfile_Click" Style="{StaticResource CustomButtonStyle}" Margin="0,0,0,10" />
-
-                        <!-- Загрузка файлов -->
-                        <TextBlock Text="Load Files for Selected Profile:" FontSize="14" Foreground="#FF0D0D0E" Margin="0,0,0,5"/>
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                            <Button Content="Load Shortcut File" Click="LoadKeyboardShortcuts_Click" Style="{StaticResource CustomButtonStyle}" Width="150"/>
-                            <CheckBox Name="checkboxShortcutLoaded" VerticalAlignment="Center" IsEnabled="False" Content="Loaded" Margin="10,0,0,0"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                            <Button Content="Load Ribbon File" Click="LoadRibbon_Click" Style="{StaticResource CustomButtonStyle}" Width="150"/>
-                            <CheckBox Name="checkboxRibbonLoaded" VerticalAlignment="Center" IsEnabled="False" Content="Loaded" Margin="10,0,0,0"/>
-                        </StackPanel>
-
-                        <!-- Выбор путей сохранения -->
-                        <TextBlock Text="Select Save Paths for Selected Profile:" FontSize="14" Foreground="#FF0D0D0E" Margin="0,0,0,5"/>
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                            <Button Content="Select Shortcut Save Path" Click="SelectShortcutPath_Click" Style="{StaticResource CustomButtonStyle}" Width="200"/>
-                            <TextBox Name="shortcutPathTextBlock" 
-                                 Text="No shortcut path selected" 
-                                 FontSize="14" Foreground="Black" 
-                                 Background="{x:Null}" BorderThickness="0" 
-                                 IsReadOnly="True" TextWrapping="Wrap" 
-                                 Height="Auto" MinHeight="20" Width="200" Margin="10,0,0,0"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                            <Button Content="Select Ribbon Save Path" Click="SelectRibbonPath_Click" Style="{StaticResource CustomButtonStyle}" Width="200"/>
-                            <TextBox Name="ribbonPathTextBlock" 
-                                 Text="No ribbon path selected" 
-                                 FontSize="14" Foreground="Black" 
-                                 Background="{x:Null}" BorderThickness="0" 
-                                 IsReadOnly="True" TextWrapping="Wrap" 
-                                 Height="Auto" MinHeight="20" Width="200" Margin="10,0,0,0"/>
-                        </StackPanel>
-
-                        <!-- Кнопка IMPORT -->
-                        <Button Content="IMPORT" Style="{StaticResource ImportButtonStyle}" Click="ImportFiles_Click" Margin="0,0,0,10" Foreground="#FF343434" Background="#FF4FE872"/>
+                    <!-- Выбор существующего профиля -->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBlock Text="Select Profile:" FontSize="14" Foreground="#FF0D0D0E" Margin="0,0,10,0"/>
+                        <ComboBox Name="comboBoxProfiles" Width="200" Height="40" Background="#FFBBDEFB" Foreground="Black" BorderThickness="1" FontSize="14" SelectionChanged="ComboBoxProfiles_SelectionChanged" BorderBrush="Black" />
+                        <Button Content="Delete Profile" Click="DeleteProfile_Click" Style="{StaticResource CustomButtonStyle}" Width="120" Margin="10,0,0,0"/>
                     </StackPanel>
-                </Border>
-            </Grid>
+
+                    <!-- Ввод имени нового профиля -->
+                    <TextBlock Text="Create New Profile:" FontSize="14" Foreground="#FF0D0D0E" Margin="0,0,0,5"/>
+                    <TextBox Name="textBoxNewProfileName" Background="#FFFFFFFF" BorderThickness="1" FontSize="14" Margin="0,0,0,10"/>
+
+                    <!-- Создание нового профиля -->
+                    <Button Content="Create Profile" Click="CreateProfile_Click" Style="{StaticResource CustomButtonStyle}" Margin="0,0,0,10" />
+
+                    <!-- Загрузка файлов -->
+                    <TextBlock Text="Load Files for Selected Profile:" FontSize="14" Foreground="#FF0D0D0E" Margin="0,0,0,5"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <Button Content="Load Shortcut File" Click="LoadKeyboardShortcuts_Click" Style="{StaticResource CustomButtonStyle}" Width="150"/>
+                        <CheckBox Name="checkboxShortcutLoaded" VerticalAlignment="Center" IsEnabled="False" Content="Loaded" Margin="10,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <Button Content="Load Ribbon File" Click="LoadRibbon_Click" Style="{StaticResource CustomButtonStyle}" Width="150"/>
+                        <CheckBox Name="checkboxRibbonLoaded" VerticalAlignment="Center" IsEnabled="False" Content="Loaded" Margin="10,0,0,0"/>
+                    </StackPanel>
+
+                    <!-- Выбор путей сохранения -->
+                    <TextBlock Text="Select Save Paths for Selected Profile:" FontSize="14" Foreground="#FF0D0D0E" Margin="0,0,0,5"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <Button Content="Select Shortcut Save Path" Click="SelectShortcutPath_Click" Style="{StaticResource CustomButtonStyle}" Width="200"/>
+                        <TextBox Name="shortcutPathTextBlock" 
+                             Text="No shortcut path selected" 
+                             FontSize="14" Foreground="Black" 
+                             Background="{x:Null}" BorderThickness="0" 
+                             IsReadOnly="True" TextWrapping="Wrap" 
+                             Height="Auto" MinHeight="20" Width="200" Margin="10,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <Button Content="Select Ribbon Save Path" Click="SelectRibbonPath_Click" Style="{StaticResource CustomButtonStyle}" Width="200"/>
+                        <TextBox Name="ribbonPathTextBlock" 
+                             Text="No ribbon path selected" 
+                             FontSize="14" Foreground="Black" 
+                             Background="{x:Null}" BorderThickness="0" 
+                             IsReadOnly="True" TextWrapping="Wrap" 
+                             Height="Auto" MinHeight="20" Width="200" Margin="10,0,0,0"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Кнопка IMPORT (в отдельной строке Grid) -->
+            <Button Grid.Row="2" Content="IMPORT" Style="{StaticResource ImportButtonStyle}" 
+                Click="ImportFiles_Click" Foreground="#FF343434" Background="#FF4FE872"
+                HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="20,0,20,20"/>
         </Grid>
     </Grid>
 </Window>
