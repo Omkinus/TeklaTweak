@@ -6,22 +6,31 @@
         mc:Ignorable="d"
         WindowStyle="None" 
         AllowsTransparency="True" 
-        Background="Transparent"
-        Height="600" Width="1000">
+        Background="#00000000"
+        BorderThickness="1"
+        Height="565" Width="514" BorderBrush="#FF080808">
 
     <!-- Определение ресурсов окна -->
     <Window.Resources>
         <Style x:Key="CustomButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="#FF2196F3"/>
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#FF303030"/>
             <Setter Property="FontSize" Value="16"/>
+
+            <!-- Жирный текст -->
             <Setter Property="Padding" Value="10"/>
             <Setter Property="Margin" Value="0,5,0,0"/>
-            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <!-- Рамка толщиной 1 -->
+            <Setter Property="BorderBrush" Value="#FF303030"/>
+            <!-- Цвет рамки -->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" CornerRadius="5">
+                        <Border 
+                    Background="{TemplateBinding Background}" 
+                    BorderBrush="{TemplateBinding BorderBrush}" 
+                    BorderThickness="{TemplateBinding BorderThickness}">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
@@ -29,7 +38,8 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#FF0D47A1"/>
+                    <Setter Property="Background" Value="#FF0D4DB2"/>
+                    <Setter Property="Foreground" Value="White"/>
                 </Trigger>
                 <Trigger Property="IsPressed" Value="True">
                     <Setter Property="Background" Value="#FF0A2E49"/>
@@ -63,22 +73,27 @@
             </Style.Triggers>
         </Style>
 
-        <!-- Стиль для кнопки IMPORT -->
         <Style x:Key="ImportButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="#FF4CAF50"/>
             <!-- Зеленый цвет -->
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Foreground" Value="#FF252525"/>
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="Padding" Value="15"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Margin" Value="0,10,0,0"/>
-            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <!-- Рамка толщиной 1 -->
+            <Setter Property="BorderBrush" Value="#FF252525"/>
+            <!-- Цвет рамки в нормальном состоянии -->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                        <Border 
+                    Background="{TemplateBinding Background}" 
+                    BorderBrush="{TemplateBinding BorderBrush}" 
+                    BorderThickness="{TemplateBinding BorderThickness}">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
@@ -87,22 +102,22 @@
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#FF388E3C"/>
+                    <!-- Изменение фона при наведении -->
+                    <Setter Property="BorderBrush" Value="#FF000000"/>
+                    <!-- Подсветка рамки при наведении -->
                 </Trigger>
                 <Trigger Property="IsPressed" Value="True">
                     <Setter Property="Background" Value="#FF2E7D32"/>
+                    <!-- Изменение фона при нажатии -->
+                    <Setter Property="BorderBrush" Value="#FF000000"/>
+                    <!-- Подсветка рамки при нажатии -->
                 </Trigger>
             </Style.Triggers>
         </Style>
     </Window.Resources>
 
-    <Grid>
+    <Grid Background="#FFF9F9F9" Margin="0,0,0,0">
         <!-- Главный фон -->
-        <Grid.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                <GradientStop Color="#FFFFE2B0" Offset="0"/>
-                <GradientStop Color="#FF62EECE" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
         <!-- Контент -->
         <Grid Margin="20">
             <Grid.RowDefinitions>
@@ -125,44 +140,44 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <!-- Блок управления профилями -->
-                <Border Grid.Column="0" Background="#FF1E88E5" CornerRadius="10" Padding="20" Margin="0">
+                <Border Grid.Column="0" CornerRadius="10" Padding="20" Margin="0">
                     <StackPanel>
                         <!-- Заголовок блока -->
-                        <TextBlock Text="Profile Management" FontSize="20" Foreground="White" FontWeight="Bold" Margin="0,0,0,10"/>
+                        <TextBlock Text="Profile Management" FontSize="20" Foreground="#FF4F4F4F" FontWeight="Bold" Margin="0,0,0,10"/>
 
                         <!-- Выбор существующего профиля -->
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                            <TextBlock Text="Select Profile:" FontSize="14" Foreground="White" Margin="0,0,10,0"/>
-                            <ComboBox Name="comboBoxProfiles" Width="200" Height="40" Background="#FFBBDEFB" Foreground="Black" BorderThickness="0" FontSize="14" SelectionChanged="ComboBoxProfiles_SelectionChanged" />
+                            <TextBlock Text="Select Profile:" FontSize="14" Foreground="#FF0D0D0E" Margin="0,0,10,0"/>
+                            <ComboBox Name="comboBoxProfiles" Width="200" Height="40" Background="#FFBBDEFB" Foreground="Black" BorderThickness="1" FontSize="14" SelectionChanged="ComboBoxProfiles_SelectionChanged" BorderBrush="Black" />
                             <Button Content="Delete Profile" Click="DeleteProfile_Click" Style="{StaticResource CustomButtonStyle}" Width="120" Margin="10,0,0,0"/>
                         </StackPanel>
 
                         <!-- Ввод имени нового профиля -->
-                        <TextBlock Text="Create New Profile:" FontSize="14" Foreground="White" Margin="0,0,0,5"/>
+                        <TextBlock Text="Create New Profile:" FontSize="14" Foreground="#FF0D0D0E" Margin="0,0,0,5"/>
                         <TextBox Name="textBoxNewProfileName" Background="#FFFFFFFF" BorderThickness="1" FontSize="14" Margin="0,0,0,10"/>
 
                         <!-- Создание нового профиля -->
-                        <Button Content="Create Profile" Click="CreateProfile_Click" Style="{StaticResource CustomButtonStyle}" Margin="0,0,0,10"/>
+                        <Button Content="Create Profile" Click="CreateProfile_Click" Style="{StaticResource CustomButtonStyle}" Margin="0,0,0,10" />
 
                         <!-- Загрузка файлов -->
-                        <TextBlock Text="Load Files for Selected Profile:" FontSize="14" Foreground="White" Margin="0,0,0,5"/>
+                        <TextBlock Text="Load Files for Selected Profile:" FontSize="14" Foreground="#FF0D0D0E" Margin="0,0,0,5"/>
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                             <Button Content="Load Shortcut File" Click="LoadKeyboardShortcuts_Click" Style="{StaticResource CustomButtonStyle}" Width="150"/>
-                            <CheckBox Name="checkboxShortcutLoaded" IsEnabled="False" Content="Loaded" Margin="10,0,0,0"/>
+                            <CheckBox Name="checkboxShortcutLoaded" VerticalAlignment="Center" IsEnabled="False" Content="Loaded" Margin="10,0,0,0"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                             <Button Content="Load Ribbon File" Click="LoadRibbon_Click" Style="{StaticResource CustomButtonStyle}" Width="150"/>
-                            <CheckBox Name="checkboxRibbonLoaded" IsEnabled="False" Content="Loaded" Margin="10,0,0,0"/>
+                            <CheckBox Name="checkboxRibbonLoaded" VerticalAlignment="Center" IsEnabled="False" Content="Loaded" Margin="10,0,0,0"/>
                         </StackPanel>
 
                         <!-- Выбор путей сохранения -->
-                        <TextBlock Text="Select Save Paths for Selected Profile:" FontSize="14" Foreground="White" Margin="0,0,0,5"/>
+                        <TextBlock Text="Select Save Paths for Selected Profile:" FontSize="14" Foreground="#FF0D0D0E" Margin="0,0,0,5"/>
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                             <Button Content="Select Shortcut Save Path" Click="SelectShortcutPath_Click" Style="{StaticResource CustomButtonStyle}" Width="200"/>
                             <TextBox Name="shortcutPathTextBlock" 
                                  Text="No shortcut path selected" 
-                                 FontSize="14" Foreground="White" 
-                                 Background="#FF1E88E5" BorderThickness="0" 
+                                 FontSize="14" Foreground="Black" 
+                                 Background="{x:Null}" BorderThickness="0" 
                                  IsReadOnly="True" TextWrapping="Wrap" 
                                  Height="Auto" MinHeight="20" Width="200" Margin="10,0,0,0"/>
                         </StackPanel>
@@ -170,14 +185,14 @@
                             <Button Content="Select Ribbon Save Path" Click="SelectRibbonPath_Click" Style="{StaticResource CustomButtonStyle}" Width="200"/>
                             <TextBox Name="ribbonPathTextBlock" 
                                  Text="No ribbon path selected" 
-                                 FontSize="14" Foreground="White" 
-                                 Background="#FF1E88E5" BorderThickness="0" 
+                                 FontSize="14" Foreground="Black" 
+                                 Background="{x:Null}" BorderThickness="0" 
                                  IsReadOnly="True" TextWrapping="Wrap" 
                                  Height="Auto" MinHeight="20" Width="200" Margin="10,0,0,0"/>
                         </StackPanel>
 
                         <!-- Кнопка IMPORT -->
-                        <Button Content="IMPORT" Style="{StaticResource ImportButtonStyle}" Click="ImportFiles_Click" Margin="0,0,0,10"/>
+                        <Button Content="IMPORT" Style="{StaticResource ImportButtonStyle}" Click="ImportFiles_Click" Margin="0,0,0,10" Foreground="#FF343434" Background="#FF4FE872"/>
                     </StackPanel>
                 </Border>
             </Grid>
